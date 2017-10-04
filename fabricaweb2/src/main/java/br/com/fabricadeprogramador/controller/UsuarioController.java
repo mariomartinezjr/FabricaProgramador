@@ -10,51 +10,63 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fabricadeprogramador.model.Cliente;
+import br.com.fabricadeprogramador.model.Usuario;
 import br.com.fabricadeprogramador.repository.ClienteRepository;
+import br.com.fabricadeprogramador.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping("/clicontroller")
+@RequestMapping("/usucontroller")
 
 public class UsuarioController  {
 
 	
 	@Autowired
-	ClienteRepository clienteRepository;
+	UsuarioRepository usuarioRepository;
 	
 	@PostMapping
-	public Cliente inserir(@RequestBody Cliente cliente) {
+	public Usuario inserir(@RequestBody Usuario usuario) {
 		
-		return clienteRepository.save(cliente);
+		return usuarioRepository.save(usuario);
 	}
 	
 	@GetMapping
-	public List<Cliente> buscarTodos(){
-		return clienteRepository.findAll();
+	public List<Usuario> buscarTodos(){
+		return usuarioRepository.findAll();
 	}
 	
-	@GetMapping("/{nome}")
-	public List<Cliente> buscarPorNome(@PathVariable("nome") String nome){
-		return clienteRepository.findByNomeIgnoreCase(nome);
+	@GetMapping("/q/{nome}")
+	public List<Usuario> buscarPorNome(@PathVariable("nome") String nome){
+		return usuarioRepository.findByNomeIgnoreCase(nome);
 	}
 	
 	
 	@GetMapping("/{id}")
-	public Cliente buscarPorId(@PathVariable("id") Long id) {
-		return clienteRepository.findOne(id);
+	public Usuario buscarPorId(@PathVariable("id") Integer id) {
+		return usuarioRepository.findOne(id);
 	}
 	
 	@PutMapping
-	public Cliente alterar(@RequestBody Cliente cliente) {
-		return clienteRepository.save(cliente);
+	public Usuario alterar(@RequestBody Usuario usuario) {
+		return usuarioRepository.save(usuario);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void excluir(@PathVariable("id") Long id) {
+	public void excluir(@PathVariable("id") Integer id) {
 		
-		clienteRepository.delete(id);
+		usuarioRepository.delete(id);
+	}
+	
+	
+	
+	@GetMapping("/q2")
+	public List<Usuario> buscarPorNomeESenha(@RequestParam("nome") String nome, @RequestParam("senah") String senha){
+     
+		return usuarioRepository.findByNomeAndSenha(nome, senha);
+		
 	}
 	
 }

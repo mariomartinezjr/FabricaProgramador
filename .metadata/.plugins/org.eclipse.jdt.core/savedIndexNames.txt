@@ -8,7 +8,6 @@ INDEX VERSION 1.130+C:\Users\Mario\Documents\workspace-sts-3.9.0.RELEASE\.metada
 4005617011.index
 3535147242.index
 4019428660.index
-1274297964.index
 623567656.index
 2962195393.index
 1885904849.index
