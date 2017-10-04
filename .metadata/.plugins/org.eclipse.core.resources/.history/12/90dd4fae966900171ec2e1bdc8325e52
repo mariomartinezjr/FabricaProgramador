@@ -1,0 +1,25 @@
+package Lista10;
+
+public class GerenciadorMatricula {
+	
+	private Matricula matricula[];
+	private Integer codigoSeq=0;
+	
+	
+	public void cadastrarMatricula(Matricula mat) {
+		
+		
+	}
+	
+	public Matricula buscarMatricula(Aluno aluno) {
+		
+		return null;
+	}
+	
+	public Integer gerarCodigoSequencial() {
+		
+		codigoSeq = codigoSeq +1;
+		return this.codigoSeq;
+	}
+
+}

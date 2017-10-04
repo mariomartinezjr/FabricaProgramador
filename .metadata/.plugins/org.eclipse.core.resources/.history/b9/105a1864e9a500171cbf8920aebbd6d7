@@ -1,0 +1,24 @@
+package br.com.fabricadeprogramador.model;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+public class lerArquivo {
+
+	public static void  main(String[] args) {
+	try {
+		BufferedReader lerArquivo = new BufferedReader(new FileReader("C:/Users/Mario/Desktop/teste_Ler.txt"));
+	    while (lerArquivo.ready()) {
+		String linha = lerArquivo.readLine();
+		System.out.println(linha);
+	}
+	lerArquivo.close();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+}

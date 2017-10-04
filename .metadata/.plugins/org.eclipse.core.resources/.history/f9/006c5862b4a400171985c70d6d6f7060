@@ -1,0 +1,51 @@
+package br.com.fabricadeprogramador.controller;
+
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.fabricadeprogramador.model.Cliente;
+
+@RestController
+@RequestMapping("/clicontroller")
+public class ClienteController {
+
+	
+	@PostMapping
+	public Cliente inserir(Cliente cliente) {
+		
+		
+		
+		return null;
+	}
+	
+	@GetMapping
+	public List<Cliente> buscarTodos(){
+		return null;
+	}
+	
+	@GetMapping("/{id}")
+	public Cliente buscarPorId(@PathVariable("id") Long id) {
+		return null;
+	}
+	
+	@PutMapping
+	public Cliente alterar(Cliente cliente) {
+		return null;
+	}
+	
+	@DeleteMapping("/{id}")
+	public void excluir(@PathVariable("id") Long id) {
+		
+	}
+	
+	
+}

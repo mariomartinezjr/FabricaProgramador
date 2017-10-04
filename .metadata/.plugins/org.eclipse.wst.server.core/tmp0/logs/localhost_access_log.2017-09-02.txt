@@ -1,0 +1,1 @@
+0:0:0:0:0:0:0:1 - - [02/Sep/2017:11:27:27 -0400] "GET /fabricaweb/usucontroller?idaltera=0&nome=marioalterado&email=emailaalterado HTTP/1.1" 200 2

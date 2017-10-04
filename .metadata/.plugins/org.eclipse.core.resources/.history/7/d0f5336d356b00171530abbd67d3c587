@@ -1,0 +1,44 @@
+package Lista10;
+
+import java.util.Arrays;
+
+public class GerenciadorMatricula {
+	
+	private Matricula matricula[] = new Matricula[3] ;
+	private Integer codigoSeq=1;
+	private Integer pos=0;
+	
+	
+	public void cadastrarMatricula(Matricula mat) {
+		
+		Integer novoCodigo = gerarCodigoSequencial();
+		if(pos < matricula.length) {
+			matricula[pos++]=mat;
+		}
+		
+	}
+	public Matricula[] buscarMatricula(Aluno aluno) {
+		
+		return null;
+	}
+	
+	private Integer gerarCodigoSequencial() {
+		
+		
+		return codigoSeq++;
+	}
+	
+public void imprime() {
+		
+		for (int i=0; i < matricula.length; i++) {
+			System.out.println("Codigo: " +  matricula[i].getCodigo() + " Nome: " + matricula[i].getAluno().getNome() + " Curso: "  + matricula[i].getCurso().getNome());
+		} 
+		
+		
+
+}
+@Override
+public String toString() {
+	return "GerenciadorMatricula [matricula=" + Arrays.toString(matricula) +   "]";
+}
+}

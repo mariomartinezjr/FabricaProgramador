@@ -1,0 +1,34 @@
+package banco;
+
+public class Conta {
+	
+	int codigoCliente;
+	int numero;
+	private double saldo;
+	int agencia;
+	
+	public double getSaldo() {
+		
+		return this.saldo;
+		
+	}
+	
+	public void setSaldo(double novoSaldo) {
+		
+		this.saldo = novoSaldo;
+	}
+	
+	public void depositaConta(double valor) {
+		
+		this.saldo = saldo + valor;
+	}
+
+	public void debitaConta(double valor) {
+		
+		if (valor <= saldo) {
+		this.saldo = saldo - valor;
+	}else {
+		System.out.println("saldo insuficiente");
+	}
+	}
+}

@@ -1,0 +1,16 @@
+
+public class Algoritimo3 {
+
+	public static void main(String[] args){
+	
+	
+	float cfabrica=10.000f;
+	float cconsumidor;
+	
+	cconsumidor= cfabrica + cfabrica*0.28f + cfabrica*0.45f;
+	
+	System.out.println(cconsumidor);
+			
+	
+	}
+}

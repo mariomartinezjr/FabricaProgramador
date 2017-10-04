@@ -1,0 +1,43 @@
+package Lista10;
+
+public class Teste {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Aluno al1 = new Aluno();
+		Aluno al2 = new Aluno();
+		
+		Curso c1 = new Curso();
+		Curso c2 = new Curso();
+		
+		Matricula mat1 = new Matricula();
+		Matricula mat2 = new Matricula();
+		
+		al1.setNome("mario");
+		al1.setCpf("123456");
+		
+		al2.setNome("jao");
+		al2.setCpf("0988776");
+		
+		c1.setNome("matematica");
+		c2.setNome("Calculo 1");
+		
+		mat1.setAluno(al1);
+		mat1.setCurso(c1);
+		
+		mat2.setAluno(al2);
+		mat2.setCurso(c2);
+		
+		GerenciadorMatricula g1 = new GerenciadorMatricula();
+		
+		//Matricula matricula[] = new Matricula[3];
+		
+		g1.cadastrarMatricula(mat1);
+		g1.cadastrarMatricula(mat2);
+		
+		g1.imprime();
+		
+	}
+
+}

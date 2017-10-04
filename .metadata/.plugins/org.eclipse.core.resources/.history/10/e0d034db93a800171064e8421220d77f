@@ -1,0 +1,5 @@
+package br.com.fabricadeprogramador.model;
+
+public class Usuario {
+
+}

@@ -1,0 +1,2 @@
+0:0:0:0:0:0:0:1 - - [11/Sep/2017:14:56:37 -0400] "GET /fabricaweb/crud-usuario.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [11/Sep/2017:14:56:37 -0400] "GET /fabricaweb/usucontroller HTTP/1.1" 200 103

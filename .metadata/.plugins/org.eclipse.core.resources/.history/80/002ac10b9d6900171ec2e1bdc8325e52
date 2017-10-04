@@ -1,0 +1,17 @@
+package Lista10;
+
+public class Teste {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		GerenciadorMatricula g1 = new GerenciadorMatricula();
+		GerenciadorMatricula g2 = new GerenciadorMatricula();
+		GerenciadorMatricula g3 = new GerenciadorMatricula();
+		
+		System.out.println(g1.gerarCodigoSequencial());
+		System.out.println(g2.gerarCodigoSequencial());
+		System.out.println(g3.gerarCodigoSequencial());
+	}
+
+}

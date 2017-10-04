@@ -1,0 +1,29 @@
+package Lista12.Teste.src.sobrecarga;
+import java.util.Date;
+
+public class Matricula {
+	public Aluno nome;
+	public Curso descricao;
+	public Date data;
+	
+	
+	public Matricula() {
+		
+	}
+	
+	public Matricula(Aluno aluno, Curso curso, Date data) {
+		super();
+		this.nome=aluno;
+		this.descricao=curso;
+		this.data=data;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "[nome=" + nome.nome + ", Curso=" + descricao.descricao + ", data=" + data + "]";
+	}
+	
+	
+
+}

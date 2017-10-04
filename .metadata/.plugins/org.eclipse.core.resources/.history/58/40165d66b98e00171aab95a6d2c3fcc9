@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+	<title>login</title>
+</head>
+<body>
+
+<div class="div1">
+<form action="javascript:void(0)" onsubmit="app.salvar()">
+<div class="div0">Cadastro de usuario <img src="x.png"></div>
+<label>Nome</label>
+<input type="text" autofocus="y" id="add-nome" placeholder="Novo Usuario" width="200px">
+<input type="submit" class="btn" value="Salvar" >
+<input type="submit" class="btn" value="Cancelar" onclick="app.novo()">
+</form>
+</div>
+
+<div class="div3">
+<p id="contar">
+<table border="1" width="300">
+<tr></tr>
+	<tbody id="usuarios">
+		
+
+	</tbody>
+
+</table>
+</div>
+</body>
+<script>
+	
+var app = new function(){
+
+
+this.usuarios = ['jao','maria','ze'];
+this.controle=-1;
+
+this.salvar =  function(){
+var elNome = document.getElementById("add-nome");
+var usuario = elNome.value;
+
+
+if(usuario){
+    if (this.controle == -1){
+	//this.usuarios.push(usuario);
+
+    var xhttp = new XMLHttpRequest();
+
+    // calback
+
+    xhttp.onreadystatechange = function(){
+
+    	if(this.readyState == 4  && this.status == 200){
+    		app.usuarios.push(usuario);
+    	}
+    }
+    xhttp.open("POST", "usucontroller", true);
+    xhttp.sendRequestHeader("Content-type" , "application/x-www-form-urlencoded");
+    xhttp.send("nome" + usuario);
+
+}else {
+    
+    var xhttp = new XMLHttpRequest();
+    
+// calback
+
+    xhttp.onreadystatechange = function(){
+
+    	if(this.readyState == 4  && this.status == 200){
+        this.usuarios.splice(this.controle,1,usuario.trim());
+	}
+};
+
+    xhttp.open("POST", "usucontroller", true);
+    xhttp.sendRequestHeader("Content-type" , "application/x-www-form-urlencoded");
+    xhttp.send("i=" + this.controle  + "&nome=" + usuario);
+    
+    this.controle = -1
+}
+}
+    this.listarTodos();
+	this.novo();
+}
+
+}
+
+this.listarTodos =  function(){
+
+	var dados='';
+
+	for (var i=0; i < this.usuarios.length; i++) {
+		dados += '<tr>';
+		dados += '<td>' + this.usuarios[i] + '</td>';
+		dados += '<td> <button onclick="app.exluir('+i+')">Excluir</td>'; 
+		dados += '<td> <button onclick="app.editar('+i+')">Editar</td> ';
+		dados += '</tr>'
+	}
+
+    this.contaArray();
+	document.getElementById("usuarios").innerHTML = dados;
+}
+
+
+this.exluir = function(item){
+
+this.usuarios.splice(item,1);
+this.listarTodos();
+
+}
+
+this.editar = function(item){
+this.controle = item;
+var nome = this.usuarios[item];
+if(nome){
+document.getElementById("add-nome").value = nome;
+}
+
+}
+
+this.contaArray = function(){
+
+var conta= this.usuarios.length;
+
+if (conta < 1){
+document.getElementById("contar").innerHTML = "Array vazio!!"	
+}else if(conta == 1){
+	document.getElementById("contar").innerHTML = "Valor  do Array é:  " + conta;
+}else
+document.getElementById("contar").innerHTML = "Valores do array são: " + conta;
+
+
+}
+
+this.novo = function(){
+
+document.getElementById("add-nome").value = "";
+
+}
+}
+app.listarTodos();
+
+</script>
+</html>

@@ -1,0 +1,3 @@
+spring.datasource.url=jdbc:postegresql://locahost:5432/modulo4db
+spring.datasource.password=sup2002
+spring.datasource.username=postgres

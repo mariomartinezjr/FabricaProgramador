@@ -1,0 +1,46 @@
+package Lista10;
+
+import java.util.Scanner;
+
+public class Teste {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner entrada = new Scanner(System.in);
+		
+		GerenciadorMatricula g = new GerenciadorMatricula();
+		
+		for(int i=0;i < 3; i++) {
+			
+			Aluno a = new Aluno();
+			Curso c = new Curso();
+			Matricula m = new Matricula();
+			
+			System.out.println("Digite o codigo do aluno");
+			a.setCodigo(entrada.nextInt());
+			
+			System.out.println("Digite o nome do aluno");
+			a.setNome(entrada.next());
+			
+			System.out.println("Digite o cpf do aluno");
+			a.setCpf(entrada.next());
+			
+			System.out.println("Digite o nome do Curso");
+			c.setNome(entrada.next());
+			
+			System.out.println("Digite a Carga Horaria do Curso");
+			c.setCargaHoraria(entrada.nextInt());
+			
+			m.setAluno(a);
+			m.setCurso(c);
+			
+			g.cadastrarMatricula(m);
+			
+		}
+		
+		g.imprime();
+	}
+	
+
+}
