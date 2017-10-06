@@ -13,7 +13,7 @@ public interface UsuarioRepository  extends JpaRepository<Usuario, Integer>{
 	List<Usuario> findByNomeIgnoreCase(String nome);
 	List<Usuario> findByNomeAndSenha(String nome, String senha);
 	List<Usuario> findByPerfilDescricao(String descricao);
-	//List<Usuario> buscaPorPerfil(String descricaoPerfil);
+	List<Usuario> buscaPorPerfil(String descricaoPerfil);
     
 	
 	@Query("select new Usuario(u.id,u.nome,u.email) from Usuario u where u.perfil.id=?1")

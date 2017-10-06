@@ -42,10 +42,10 @@ public class Usuario {
 
 
 
-	public Usuario(Integer id, String nome, String email) {
+	public Usuario(String nome, String senha,String email) {
 		super();
-		this.id = id;
 		this.nome = nome;
+		this.senha = senha;
 		this.email= email;
 	}	
 
