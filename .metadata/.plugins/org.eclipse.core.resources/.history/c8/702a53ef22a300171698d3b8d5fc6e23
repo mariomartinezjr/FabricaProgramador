@@ -1,9 +1,0 @@
-spring.datasource.url=jdbc:postgresql://locahost:5432/modulo4db
-spring.datasource.password=sup2002
-spring.datasource.username=postgres
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
-
-
-server.port=${port:8081}

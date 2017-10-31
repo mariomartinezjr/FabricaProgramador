@@ -1,0 +1,35 @@
+package com.htcursos.converter;
+
+import com.htcursos.dto.ContaDTO;
+import com.htcursos.entity.Conta;
+import com.htcursos.exceptions.DTOConverterExpcetion;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ContaConverter implements Converter<ContaDTO,Conta> {
+    @Override
+    public ContaDTO convertFromEntity(Conta entity) throws DTOConverterExpcetion {
+        ContaDTO contaDTO = new ContaDTO();
+        contaDTO.setId(entity.getId());
+        contaDTO.setAtivo(entity.getAtivo());
+        contaDTO.setClassificacao(entity.getClassificacao());
+        contaDTO.setCodigoReduzido(entity.getCodigoReduzido());
+        contaDTO.setDescricao(entity.getDescricao());
+        contaDTO.setGrau(entity.getGrau());
+
+        return contaDTO;
+    }
+
+    @Override
+    public Conta convertFromDTO(ContaDTO dto) throws DTOConverterExpcetion {
+        Conta conta = new Conta();
+        conta.setId(dto.getId());
+        conta.setAtivo(dto.getAtivo());
+        conta.setClassificacao(dto.getClassificacao());
+        conta.setCodigoReduzido(dto.getCodigoReduzido());
+        conta.setDescricao(dto.getDescricao());
+        conta.setGrau(dto.getGrau());
+
+        return conta;
+    }
+}

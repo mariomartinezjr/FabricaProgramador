@@ -1,0 +1,6 @@
+package br.com.fabricadeprogramador.service;
+
+public class ServiceException extends Throwable{
+	
+
+}

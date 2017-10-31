@@ -3,6 +3,7 @@ package br.com.fabricadeprogramador.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,56 +18,71 @@ import br.com.fabricadeprogramador.model.Cliente;
 import br.com.fabricadeprogramador.model.Usuario;
 import br.com.fabricadeprogramador.repository.ClienteRepository;
 import br.com.fabricadeprogramador.repository.UsuarioRepository;
+import br.com.fabricadeprogramador.service.ServiceException;
+import br.com.fabricadeprogramador.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usucontroller")
-
+@CrossOrigin(origins = {"*"})
 public class UsuarioController  {
-
+    
 	
+		
 	@Autowired
-	UsuarioRepository usuarioRepository;
+	UsuarioService usuarioService;
 	
 	@PostMapping
 	public Usuario inserir(@RequestBody Usuario usuario) {
 		
-		return usuarioRepository.save(usuario);
+		try {
+			return usuarioService.salvar(usuario);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+		return usuario;
 	}
 	
 	@GetMapping
 	public List<Usuario> buscarTodos(){
-		return usuarioRepository.findAll();
+		return usuarioService.buscarTodos();
 	}
 	
 	@GetMapping("/q/{nome}")
 	public List<Usuario> buscarPorNome(@PathVariable("nome") String nome){
-		return usuarioRepository.findByNomeIgnoreCase(nome);
+		return usuarioService.findByNomeIgnoreCase(nome);
 	}
 	
 	
 	@GetMapping("/{id}")
 	public Usuario buscarPorId(@PathVariable("id") Integer id) {
-		return usuarioRepository.findOne(id);
+		return usuarioService.buscarPorId(id);
 	}
 	
 	@PutMapping
 	public Usuario alterar(@RequestBody Usuario usuario) {
-		return usuarioRepository.save(usuario);
+		try {
+			return usuarioService.salvar(usuario);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return usuario;
 	}
 	
 	@DeleteMapping("/{id}")
 	public void excluir(@PathVariable("id") Integer id) {
 		
-		usuarioRepository.delete(id);
+		usuarioService.exclui(id);
 	}
 	
 	
 	
-	@GetMapping("/q2")
-	public List<Usuario> buscarPorNomeESenha(@RequestParam("nome") String nome, @RequestParam("senah") String senha){
-     
-		return usuarioRepository.findByNomeAndSenha(nome, senha);
-		
-	}
+//	@GetMapping("/q2")
+//	public List<Usuario> buscarPorNomeESenha(@RequestParam("nome") String nome, @RequestParam("senah") String senha){
+//     
+//		return usuarioRepository.findByNomeAndSenha(nome, senha);
+//		
+//	}
 	
 }

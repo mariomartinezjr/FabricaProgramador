@@ -1,5 +1,0 @@
-package br.com.fabricadeprogramador.repository;
-
-public interface UsuarioRepository {
-
-}

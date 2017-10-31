@@ -7,6 +7,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.SequenceGenerator;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
@@ -31,6 +34,8 @@ public class Usuario {
 	
 	private Integer id;
 	private String nome;
+	
+	@JsonIgnore
 	private String senha;
 	private String email;
 	
